@@ -1,9 +1,11 @@
 #include "../include/generate_tad.h"
 
 /*Esta funcao vai ler a entrada padrao e montar a estrutura de dados
-utilzada para ambos algoritmos*/
+utilzada para ambos algoritmos
+    @status Testada e funcionando
+*/
 SUBSET getSUBSET(){
-    /*Philippe: Estou mexendo nesta funcao*/
+
     SUBSET s;
     int alphabet_size;
     int item;
