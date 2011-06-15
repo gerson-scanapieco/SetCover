@@ -20,7 +20,6 @@ SUBSET getSUBSET(){
         scanf("%d",&item);
         s.alphabet[i] = item;
     }
-    //Daqui pra cima funciona
     scanf("%d",&qt_subset);
     s.subsets = (int **) malloc(qt_subset*sizeof(int *)); //define a qt de subconjuntos
     s.qt_subsets = qt_subset;
