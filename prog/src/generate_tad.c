@@ -2,7 +2,7 @@
 
 /*Esta funcao vai ler a entrada padrao e montar a estrutura de dados
 utilzada para ambos algoritmos*/
-SUBSET getTAD(){
+SUBSET getSUBSET(){
     /*Philippe: Estou mexendo nesta funcao*/
     SUBSET s;
     int alphabet_size;
@@ -27,8 +27,9 @@ SUBSET getTAD(){
           e logo apos o programa aloca o tamanho do subconjunto e preenche com os
           valores da entrada padrao*/
         scanf("%d",&size_subset);
-        s.subsets[i] = (int *) malloc(size_subset*sizeof(int));
-        for(j=0;j<size_subset;j++){
+        s.subsets[i] = (int *) malloc((size_subset+1)*sizeof(int));
+        s.subsets[0] = size_subset;
+        for(j=1;j<size_subset;j++){
             scanf("%d",&item);
             s.subsets[i][j] = item;
         }

@@ -3,6 +3,6 @@
 #include<stdlib.h>
 int main(int argc,char * argv[]){
 
-    getTAD();
+    getSUBSET();
     return 0;
 }
