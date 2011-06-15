@@ -9,6 +9,7 @@ Segunda linha = quantidade de subconjuntos
 Linhas em diantes:
 N a1 a2 a3 ... aN
 */
-int **getTAD();
-int isAlphaNumeric(char c);
+typedef struct {int *alphabet; int **subsets;} SUBSET;
+SUBSET getTAD();
+
 #endif // GENERATE_TAD_H_INCLUDED

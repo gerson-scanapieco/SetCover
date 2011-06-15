@@ -1,27 +1,39 @@
 #include "../include/generate_tad.h"
 
-/*Esta funcao vai ler a entrada padrão e montar a estrutura de dados
+/*Esta funcao vai ler a entrada padrao e montar a estrutura de dados
 utilzada para ambos algoritmos*/
-int **getTAD(){
+SUBSET getTAD(){
     /*Philippe: Estou mexendo nesta funcao*/
-    char c;
+    SUBSET s;
     int alphabet_size;
+    int item;
+    int qt_subset;
+    int size_subset;
+    int i;
+    int j;
     scanf("%d",&alphabet_size);
-    printf("Numero de itens no alfabeto = %d\n",alphabet_size);
-    do{
-        c = getchar();
+    s.alphabet = (int *) malloc(alphabet_size*sizeof(int));
 
-        if(isAlphaNumeric(c)){
-            //caso seja um valor valido
-            printf("%c ",c);
+    for(i=0;i<alphabet_size;i++){
+        scanf("%d",&item);
+        s.alphabet[i] = item;
+    }
+
+    scanf("%d",&qt_subset);
+    s.subsets = (int **) malloc(qt_subset*sizeof(int *)); //define a qt de subconjuntos
+
+    for(i=0;i<qt_subset;i++){
+        /*para cada um dos subconjuntos ele le primeiro o tamanho do subconjunto
+          e logo apos o programa aloca o tamanho do subconjunto e preenche com os
+          valores da entrada padrao*/
+        scanf("%d",&size_subset);
+        s.subsets[i] = (int *) malloc(size_subset*sizeof(int));
+        for(j=0;j<size_subset;j++){
+            scanf("%d",&item);
+            s.subsets[i][j] = item;
         }
-    }while(c!= '\n');
-    return NULL;
+    }
+    return s;
 }
 
-/*Retorna positivo caso um char seja letra ou numero */
-int isAlphaNumeric(char c){
-    if((c>=65 && c<=90)||(c>=97 && c<=122)||(c>=48 && c<=57))
-        return 1;
-    return 0;
-}
+
