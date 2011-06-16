@@ -2,8 +2,8 @@
 #define ALGORITHM_H_INCLUDED
 
 #include "generate_tad.h"
-
-void brute_force_sc(SUBSET s);
-void greedy_sc(SUBSET s);
+void  isec(SUBSET *, int , int ,int *	);
+void brute_force_sc(SUBSET *);
+void greedy_sc(SUBSET *);
 
 #endif // ALGORITHM_H_INCLUDED
