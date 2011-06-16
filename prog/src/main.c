@@ -2,15 +2,7 @@
 
 int main(int argc,char * argv[]){
 
-    /*Este programa recebe uma entrada para o problema e então
-      executa os 2 algoritmos para a mesma entrada e calcula o tempo
-      de execucao para os 2 algoritmos e entao escreve na saida padrao
-      no formato html utilizando tabelas os resultados para os 2
-      algoritmos, essas tabelas poderao ser utilizadas no trabalho
-      bem como importadas no excel para geração de gráficos ou mesmo
-      em outras ferramentas.
 
-    */
     char end[3];
     FILE *report;
     clock_t t1,t2;
