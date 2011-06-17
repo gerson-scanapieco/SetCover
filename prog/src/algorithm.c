@@ -3,33 +3,35 @@
 /* intersection of sets
  * subsets DEVEM estar ordenados!!
  * set1 e set2 são 2 vetores que representam 1 conjunto */
-int  isec(SUBSET *s, int  set1[], int set2[],int *	intsec) 
+int * isec(SUBSET *s, int  set1[], int set2[]) 
 {
-	short int i=0,j=0,k=1;
+	int *intsec;
+	intsec=malloc(sizeof(int)*(set1[0]+set2[0]));
+	short int i=0,j=0,k1=1,k2=1;
 	int cnt=0;
   for(;i<s->size_alphabet;i++)
 		{
-			if(k<=set1[0])
+			if(k1<=set1[0])
 			 {
-				if(s->alphabet[i]!=set1[k])
+				if(s->alphabet[i]!=set1[k1])
 					++j;
 				else
-					++k;
+					++k1;
 			 }
 			else
-				j--;
+				j-=2;
 
-			if(k<=set2[0])
+			if(k2<=set2[0])
 			 {
-				if(s->alphabet[i]!=set2[k])
+				if(s->alphabet[i]!=set2[k2])
 					++j;	
 				else
-					++k;				
+					++k2;				
 			 }
 			else
-				j--;
+				j-=2;
 
-			if(j==2 || j==-2)
+			if(j!=2 && j!=-1 && j!=-4)
 				intsec[++cnt]=s->alphabet[i];
 
 			j=0;
@@ -44,7 +46,7 @@ int  isec(SUBSET *s, int  set1[], int set2[],int *	intsec)
 		intsec=aux;
 		free(aux);
 	}*/
-	return cnt;
+	return intsec;
 }
 
 
