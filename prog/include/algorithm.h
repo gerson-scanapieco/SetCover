@@ -5,6 +5,6 @@
 
 void brute_force_sc(SUBSET s);
 void greedy_sc(SUBSET s);
-int  isec(SUBSET *s, int  set1[], int set2[],int *	intsec);
+int *  isec(SUBSET *, int  [], int []);
 
 #endif // ALGORITHM_H_INCLUDED
