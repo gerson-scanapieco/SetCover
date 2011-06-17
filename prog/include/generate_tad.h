@@ -11,6 +11,6 @@ Linhas em diantes:
 N a1 a2 a3 ... aN
 */
 typedef struct {int size_alphabet; int qt_subsets; int *alphabet; int **subsets;} SUBSET;
-SUBSET getSUBSET();
+void getSUBSET(SUBSET *s);
 
 #endif // GENERATE_TAD_H_INCLUDED
