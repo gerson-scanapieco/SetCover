@@ -5,27 +5,31 @@
  * set1 e set2 são 2 vetores que representam 1 conjunto */
 int  isec(SUBSET *s, int  set1[], int set2[],int *	intsec) 
 {
-	short int i=0,j=0;
+	short int i=0,j=0,k=1;
 	int cnt=0;
   for(;i<s->size_alphabet;i++)
 		{
-			if(i+1<=set1[0])
+			if(k<=set1[0])
 			 {
-				if(s->alphabet[i]!=set1[i+1])
+				if(s->alphabet[i]!=set1[k])
 					++j;
+				else
+					++k;
 			 }
 			else
-				j++;
+				j--;
 
-			if(i+1<=set2[0])
+			if(k<=set2[0])
 			 {
-				if(s->alphabet[i]!=set2[i+1])
-					++j;
-				 }
+				if(s->alphabet[i]!=set2[k])
+					++j;	
+				else
+					++k;				
+			 }
 			else
-				j++;
+				j--;
 
-			if(j==2)
+			if(j==2 || j==-2)
 				intsec[++cnt]=s->alphabet[i];
 
 			j=0;
