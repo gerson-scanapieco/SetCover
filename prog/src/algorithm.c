@@ -5,7 +5,7 @@
  * set1 e set2 são 2 vetores que representam 1 conjunto */
 int * isec(SUBSET *s, int  set1[], int set2[]) 
 {
-	int *intsec;
+	int *intsec,*aux;
 	intsec=malloc(sizeof(int)*(set1[0]+set2[0]));
 	short int i=0,j=0,k1=1,k2=1;
 	int cnt=0;
@@ -37,46 +37,57 @@ int * isec(SUBSET *s, int  set1[], int set2[])
 			j=0;
 		}
 	intsec[0]=cnt;
-/*	if(cnt>0)
+	if(cnt>0)
 	{
 		aux=malloc(sizeof(int)*cnt);
 		for(j=0;j<cnt;j++)
 			aux[j]=intsec[j];
 		free(intsec);
 		intsec=aux;
-		free(aux);
-	}*/
+	}
 	return intsec;
 }
 
 
+// pelos contadores i,x e j recupera-se o grupo de conjuntos que gera a solução
 
-/*
 void brute_force_sc(SUBSET *s)
 {
 	short int i,x,k,j;
-	int **intsec;
-	for(x=0;x<s->size_alphabet;++x)
+	int *intsec,*aux,tam;
+	for(x=1;x<s->size_alphabet;++x)
 	{
-	 	for(i=x;i<s->size_alphabet;++i)
+	 	for(i=0;i<s->size_alphabet;++i)
 	   {
-		  for(k=i;k<=x && k>0;++k)
+		  for(k=i;k<x + i -1 && x>1;++k)
 			 {
-				 if(k)
- 				  isec(s->subsets[k],s->subsets[k+1],intsec);
-				 isec(intsec,s->subsets[k+1],intsec);
+				 if(k==i)
+ 				  intsec=isec(s->subsets[k],s->subsets[k+1]);
+				 else
+				  {
+					 aux=insec;
+					 tam=insec[0];
+					 free(insec);
+					 aux[0]=tam;
+					 intsec=isec(aux,s->subsets[k+1]);
+			 	 }
 			 }
-			if(!x)
-
-			for(j=i+1;j<=s->size_alphabet;++j)
+			if(x==1)
+			{
+				intsec=malloc(sizeof(int)*(s->subsets[i][0]));
+				for(k=0;k<s->subsets[i][0];k++)
+					intsec[k]=s->subsets[i][k];
+			}
+			for(j=i+1;j<s->size_alphabet;++j)
 			 {
-		   	isec
+		   	 isec
 			 }
+			free(intsec);
 		 }
   }
 
 }
-
+/*
 void greedy_sc(SUBSET *s){
     //TODO implementar algoritmo aproximado
 
