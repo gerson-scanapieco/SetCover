@@ -3,7 +3,7 @@
 /* intersection of sets 
  * subsets DEVEM estar ordenados!!
  * set1 e set2 são 2 vetores que representam 1 conjunto */
-int  isec(SUBSET *s, int * set1, int *set2,int *	intsec) 
+int  isec(SUBSET *s, int  set1[], int set2[],int *	intsec) 
 {
 	short int i=0,j;
 	int cnt=0;
