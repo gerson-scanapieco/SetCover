@@ -65,9 +65,9 @@ int * brute_force_sc(SUBSET *s)
  				  intsec=isec(s,s->subsets[k],s->subsets[k+1]);
 				 else
 				  {
-					 aux=insec;
-					 tam=insec[0];
-					 free(insec);
+					 aux=intsec;
+					 tam=intsec[0];
+					 free(intsec);
 					 aux[0]=tam;
 					 intsec=isec(s,aux,s->subsets[k+1]);
 			 	 }
@@ -99,7 +99,6 @@ int * brute_force_sc(SUBSET *s)
 						set_cover[1]=j;
 						return set_cover;
 					}
-					 // acha grupos e joga;
 				 free(aux);
 			 }
 			free(intsec);

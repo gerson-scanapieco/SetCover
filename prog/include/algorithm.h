@@ -3,7 +3,7 @@
 
 #include "generate_tad.h"
 
-void brute_force_sc(SUBSET s);
+int * brute_force_sc(SUBSET *s);
 void greedy_sc(SUBSET s);
 int *  isec(SUBSET *, int  [], int []);
 
