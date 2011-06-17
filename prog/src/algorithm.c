@@ -51,10 +51,10 @@ int * isec(SUBSET *s, int  set1[], int set2[])
 
 // pelos contadores i,x e j recupera-se o grupo de conjuntos que gera a solução
 
-void brute_force_sc(SUBSET *s)
+int * brute_force_sc(SUBSET *s)
 {
 	short int i,x,k,j;
-	int *intsec,*aux,tam;
+	int *intsec,*aux,tam,*set_cover;
 	for(x=1;x<s->size_alphabet;++x)
 	{
 	 	for(i=0;i<s->size_alphabet;++i)
@@ -62,14 +62,14 @@ void brute_force_sc(SUBSET *s)
 		  for(k=i;k<x + i -1 && x>1;++k)
 			 {
 				 if(k==i)
- 				  intsec=isec(s->subsets[k],s->subsets[k+1]);
+ 				  intsec=isec(s,s->subsets[k],s->subsets[k+1]);
 				 else
 				  {
 					 aux=insec;
 					 tam=insec[0];
 					 free(insec);
 					 aux[0]=tam;
-					 intsec=isec(aux,s->subsets[k+1]);
+					 intsec=isec(s,aux,s->subsets[k+1]);
 			 	 }
 			 }
 			if(x==1)
@@ -80,7 +80,27 @@ void brute_force_sc(SUBSET *s)
 			}
 			for(j=i+1;j<s->size_alphabet;++j)
 			 {
-		   	 isec
+		   	 aux=isec(s,intsec,s->subsets[j]);
+				 if(aux[0]==s->size_alphabet)
+				  {
+						if(x==1)
+						 {
+							 set_cover=malloc(3*sizeof(int));
+							 set_cover[0]=2;
+							 set_cover[2]=i;
+						 }
+						else
+						 {
+              set_cover=malloc((x+2)*sizeof(int));
+						  set_cover[0]=x+1;
+						  for(k=0;k<x;k++)
+							  set_cover[k+2]=i+k;
+						  }
+						set_cover[1]=j;
+						return set_cover;
+					}
+					 // acha grupos e joga;
+				 free(aux);
 			 }
 			free(intsec);
 		 }
