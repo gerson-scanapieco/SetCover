@@ -2,8 +2,14 @@
 
 /* intersection of sets
  * subsets DEVEM estar ordenados!!
+ OTAVIO VC ESTA RETORNANDO UM VETOR
+ ISSO SEGUNDO VC MESMO NAO FUNCIONA
+ EM OUTRA FUNCAO VC ESTA FAZENDO O SEGUINTE
+ INT *CHUCHU = ISEC(.....);
+ E DEPOIS VC ESTA ACESSANDO CHUCHU[0], CHUCHU[1] E CHUCHU[2]
+ ISSO NAO VAI DAR CERTO
  * set1 e set2 são 2 vetores que representam 1 conjunto */
-int * isec(SUBSET *s, int  set1[], int set2[]) 
+int * isec(SUBSET *s, int  set1[], int set2[])
 {
 	int *intsec,*aux;
 	intsec=malloc(sizeof(int)*(set1[0]+set2[0]));
@@ -24,9 +30,9 @@ int * isec(SUBSET *s, int  set1[], int set2[])
 			if(k2<=set2[0])
 			 {
 				if(s->alphabet[i]!=set2[k2])
-					++j;	
+					++j;
 				else
-					++k2;				
+					++k2;
 			 }
 			else
 				j-=2;
